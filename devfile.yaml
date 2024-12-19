@@ -1,29 +1,30 @@
 schemaVersion: 2.2.2
 metadata:
-  name: challenge5-workspace
+  name: dot-net-workspace
 components:
   - name: tools
     container:
-      image: quay.io/cgruver0/che/dot-net:fedora
+      image: quay.io/cgruver0/che/dot-net:latest
       mountSources: true
+      env:
+        - name: SHELL
+          value: "/bin/zsh"
+        - name: HOME
+          value: "/projects/home"
+        - name: VSCODE_DEFAULT_WORKSPACE
+          value: "/projects/dev-workspace-images/dev-workspace-images.code-workspace"
       endpoints:
         - exposure: public
           name: 'greet-endpoint'
           protocol: https
           targetPort: 5154
           path: '/openapi/v1.json'
-      volumeMounts:
-        - name: nuget
-          path: /home/user/.nuget
-  - name: nuget
-    volume:
-      size: 1G
 commands:
   - id: 1-update-dependencies
     exec:
       label: 1.Update dependencies
       component: tools
-      workingDir: ${PROJECTS_ROOT}/ds-challenge05/src
+      workingDir: /projects/dev-spaces-dotnet/src
       commandLine: "dotnet restore"
       group:
         kind: build
@@ -31,7 +32,7 @@ commands:
     exec:
       label: 2.Build
       component: tools
-      workingDir: ${PROJECTS_ROOT}/ds-challenge05/src
+      workingDir: /projects/dev-spaces-dotnet/src
       commandLine: "dotnet build"
       group:
         kind: build
@@ -39,7 +40,7 @@ commands:
     exec:
       label: 3.Test
       component: tools
-      workingDir: ${PROJECTS_ROOT}/ds-challenge05/test
+      workingDir: /projects/dev-spaces-dotnet/test
       commandLine: "dotnet test"
       group:
         kind: run
@@ -47,7 +48,7 @@ commands:
     exec:
       label: 4.Run
       component: tools
-      workingDir: ${PROJECTS_ROOT}/ds-challenge05/src
+      workingDir: /projects/dev-spaces-dotnet/src
       commandLine: "dotnet run"
       group:
         kind: run
@@ -55,7 +56,7 @@ commands:
     exec:
       label: 5.Run (Hot Reload)
       component: tools
-      workingDir: ${PROJECTS_ROOT}/ds-challenge05/src
+      workingDir: /projects/dev-spaces-dotnet/src
       commandLine: "dotnet watch run"
       group:
         kind: run
