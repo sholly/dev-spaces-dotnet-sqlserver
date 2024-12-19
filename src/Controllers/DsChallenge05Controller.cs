@@ -16,7 +16,7 @@ public class ChallengeMethodController : ControllerBase
         for (int index = 0; index < length; index++)
         {
             char indexChar = name[index];
-            if (index == 5) // Zero-based index system
+            if (index == 4) // Zero-based index system
             {
                 char fifthCharacter = indexChar;
                 return $"The Fifth Character in the word \"OpenShift\"=[{fifthCharacter}]\n";

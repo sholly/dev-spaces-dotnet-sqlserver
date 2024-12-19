@@ -12,8 +12,11 @@ components:
         - name: HOME
           value: "/projects/home"
         - name: VSCODE_DEFAULT_WORKSPACE
-          value: "/projects/dev-workspace-images/dev-workspace-images.code-workspace"
+          value: "/projects/dev-spaces-dotnet/dev-spaces-dotnet.code-workspace"
       endpoints:
+        - exposure: internal
+          name: debug
+          targetPort: 5000
         - exposure: public
           name: 'greet-endpoint'
           protocol: https
