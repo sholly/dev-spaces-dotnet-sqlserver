@@ -4,7 +4,7 @@ metadata:
 components:
   - name: tools
     container:
-      image: quay.io/cgruver0/che/dot-net:latest
+      image: quay.io/cgruver0/che/dot-net:fedora
       mountSources: true
       cpuRequest: 50m
       cpuLimit: 1000m
@@ -17,8 +17,6 @@ components:
           value: "/projects/home"
         - name: VSCODE_DEFAULT_WORKSPACE
           value: "/projects/dev-spaces-dotnet/dev-spaces-dotnet.code-workspace"
-        - name: ASPNETCORE_URLS
-          value: "https://*:5154"
       endpoints:
         - exposure: internal
           name: debug
