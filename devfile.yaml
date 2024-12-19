@@ -6,6 +6,10 @@ components:
     container:
       image: quay.io/cgruver0/che/dot-net:latest
       mountSources: true
+      cpuRequest: 50m
+      cpuLimit: 1000m
+      memoryRequest: 1Gi
+      memoryLimit: 4Gi
       env:
         - name: SHELL
           value: "/bin/zsh"
@@ -13,15 +17,17 @@ components:
           value: "/projects/home"
         - name: VSCODE_DEFAULT_WORKSPACE
           value: "/projects/dev-spaces-dotnet/dev-spaces-dotnet.code-workspace"
+        - name: ASPNETCORE_URLS
+          value: "https://*:5154"
       endpoints:
         - exposure: internal
           name: debug
           targetPort: 5000
         - exposure: public
-          name: 'greet-endpoint'
+          name: 'api-endpoint'
           protocol: https
           targetPort: 5154
-          path: '/openapi/v1.json'
+          path: '/api/challenge'
 commands:
   - id: 1-update-dependencies
     exec:
