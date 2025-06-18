@@ -3,8 +3,13 @@ metadata:
   name: dot-net-workspace
 components:
   - name: tools
+    attributes:
+      pod-overrides:
+        metadata:
+          annotations:
+            io.kubernetes.cri-o.Devices: "/dev/fuse"
     container:
-      image: quay.io/cgruver0/che/dot-net:fedora
+      image: quay.io/cgruver0/che/dot-net:ubi
       mountSources: true
       cpuRequest: 50m
       cpuLimit: 1000m
