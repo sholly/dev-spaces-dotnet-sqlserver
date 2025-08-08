@@ -12,7 +12,8 @@ ENV BUILDAH_ISOLATION=chroot
 
 COPY --chown=0:0 entrypoint.sh /
 
-RUN dnf --disableplugin=subscription-manager install -y ${INSTALL_PACKAGES}; \
+RUN set -e ; \
+    dnf --disableplugin=subscription-manager install -y ${INSTALL_PACKAGES} ; \
     dnf update -y ; \
     dnf clean all ; \
     mkdir -p /usr/local/bin ; \
