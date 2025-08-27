@@ -5,6 +5,8 @@ components:
   - name: tools
     attributes:
       pod-overrides:
+        spec:
+          hostUsers: false
         metadata:
           annotations:
             io.kubernetes.cri-o.Devices: "/dev/fuse"
@@ -22,9 +24,12 @@ components:
           value: "/projects/home"
         - name: VSCODE_DEFAULT_WORKSPACE
           value: "/projects/dev-spaces-dotnet/dev-spaces-dotnet.code-workspace"
+        - name: ASPNETCORE_URLS
+          value: "http://0.0.0.0:5000"
       endpoints:
-        - exposure: internal
+        - exposure: public
           name: debug
+          protocol: https
           targetPort: 5000
         - exposure: public
           name: 'api-endpoint'
