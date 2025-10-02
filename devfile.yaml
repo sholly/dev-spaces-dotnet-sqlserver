@@ -99,20 +99,20 @@ components:
         - name: MSSQL_SA_PASSWORD
           value: "P@ssword1"
       volumeMounts:
-        - name: mssql-db1
+        - name: mssql-db2
           path: /var/opt/mssql
       endpoints:
         - exposure: internal
-          name: 'sqlsvr-1431'
-          targetPort: 1431   
+          name: 'sqlsvr-1435'
+          targetPort: 1435   
         - exposure: internal
-          name: 'sqlsvr-1433'
+          name: 'sqlsvr-1437'
           protocol: https
-          targetPort: 1433
+          targetPort: 1437
         - exposure: internal
-          name: 'sqlsvr-1434'
+          name: 'sqlsvr-1438'
           protocol: https
-          targetPort: 1434
+          targetPort: 1438
   - name: mssql-db1
     volume:
       size: 2Gi 
