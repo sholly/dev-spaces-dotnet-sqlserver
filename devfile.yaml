@@ -3,7 +3,6 @@ metadata:
   name: dot-net-workspace
 components:
   - name: tools
-    # Note This Devfile only works on OCP 4.18+ with user namespace support enabled - https://github.com/cgruver/ocp-4-18-nested-container-tech-preview
     container:
       image: quay.io/cgruver0/che/dot-net:ubi
       mountSources: true
