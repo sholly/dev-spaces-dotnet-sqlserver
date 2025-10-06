@@ -1,6 +1,6 @@
 schemaVersion: 2.2.2
 metadata:
-  name: dot-net-workspace
+  name: dot-net-sqlserver-workspace
 components:
   - name: tools
     container:
