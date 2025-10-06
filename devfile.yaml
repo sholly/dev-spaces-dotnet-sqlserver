@@ -47,10 +47,15 @@ components:
       env:
       - name: HOME
         value: "/projects/home"
-  - type: openshift
+
+  - name: mssql1
+    type: openshift
     reference: mssql-deployment1.yaml
-  - type: openshift
+
+  - name: mssql2 
+    type: openshift
     reference: mssql-deployment2.yaml
+    
 events:
   preStart:
     - prep-workspace
