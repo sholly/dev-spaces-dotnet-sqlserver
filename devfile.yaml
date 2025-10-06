@@ -55,7 +55,6 @@ components:
             add:
               - NET_BIND_SERVICE
     container:
-      dedicatedPod: true
       image: mcr.microsoft.com/mssql/rhel/server:2022-CU17-rhel-9.1         
       memoryLimit: '2Gi'
       memoryRequest: '2Gi'
@@ -89,7 +88,6 @@ components:
             add:
               - NET_BIND_SERVICE
     container:
-      dedicatedPod: true
       image: mcr.microsoft.com/mssql/rhel/server:2022-CU17-rhel-9.1         
       memoryLimit: '2Gi'
       memoryRequest: '2Gi'
