@@ -49,13 +49,13 @@ components:
         value: "/projects/home"
 
   - name: mssql1
-    type: openshift
-    reference: mssql-deployment1.yaml
+    openshift:
+      uri: mssql-deployment1.yaml
 
   - name: mssql2 
-    type: openshift
-    reference: mssql-deployment2.yaml
-    
+    openshift:
+      uri: mssql-deployment2.yaml
+
 events:
   preStart:
     - prep-workspace
