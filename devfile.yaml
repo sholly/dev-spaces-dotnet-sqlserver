@@ -47,78 +47,10 @@ components:
       env:
       - name: HOME
         value: "/projects/home"
-  - name: sqlserver-container1
-    attributes:
-      container-overrides: 
-        securityContext:
-          capabilities:
-            add:
-              - NET_BIND_SERVICE
-    container:
-      image: mcr.microsoft.com/mssql/rhel/server:2022-CU17-rhel-9.1         
-      memoryLimit: '2Gi'
-      memoryRequest: '2Gi'
-      env:
-        - name: MSSQL_PID
-          value: "Developer"
-        - name: ACCEPT_EULA
-          value: "Y"
-        - name: MSSQL_SA_PASSWORD
-          value: "P@ssword1"
-      volumeMounts:
-        - name: mssql-db1
-          path: /var/opt/mssql
-      endpoints:
-        - exposure: internal
-          name: 'sqlsvr-1431'
-          targetPort: 1431   
-        - exposure: internal
-          name: 'sqlsvr-1433'
-          protocol: https
-          targetPort: 1433
-        - exposure: internal
-          name: 'sqlsvr-1434'
-          protocol: https
-          targetPort: 1434
-  - name: sqlserver-container2
-    attributes:
-      container-overrides: 
-        securityContext:
-          capabilities:
-            add:
-              - NET_BIND_SERVICE
-    container:
-      image: mcr.microsoft.com/mssql/rhel/server:2022-CU17-rhel-9.1         
-      memoryLimit: '2Gi'
-      memoryRequest: '2Gi'
-      env:
-        - name: MSSQL_PID
-          value: "Developer"
-        - name: ACCEPT_EULA
-          value: "Y"
-        - name: MSSQL_SA_PASSWORD
-          value: "P@ssword1"
-      volumeMounts:
-        - name: mssql-db2
-          path: /var/opt/mssql
-      endpoints:
-        - exposure: internal
-          name: 'sqlsvr-1435'
-          targetPort: 1435   
-        - exposure: internal
-          name: 'sqlsvr-1437'
-          protocol: https
-          targetPort: 1437
-        - exposure: internal
-          name: 'sqlsvr-1438'
-          protocol: https
-          targetPort: 1438
-  - name: mssql-db1
-    volume:
-      size: 2Gi 
-  - name: mssql-db2
-    volume:
-      size: 2Gi 
+  - type: openshift
+    reference: mssql-deployment1.yaml
+  - type: openshift
+    reference: mssql-deployment2.yaml
 events:
   preStart:
     - prep-workspace
