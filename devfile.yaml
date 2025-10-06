@@ -98,6 +98,8 @@ components:
           value: "Y"
         - name: MSSQL_SA_PASSWORD
           value: "P@ssword1"
+        - name: MSSQL_TCP_PORT
+          value: "1437"
       volumeMounts:
         - name: mssql-db2
           path: /var/opt/mssql
