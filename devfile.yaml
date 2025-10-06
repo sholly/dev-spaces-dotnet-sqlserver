@@ -71,15 +71,15 @@ components:
       endpoints:
         - exposure: internal
           name: 'sqlsvr-1431'
-          targetPort: 1431   
+          targetPort: 1435   
         - exposure: internal
           name: 'sqlsvr-1433'
           protocol: https
-          targetPort: 1433
+          targetPort: 1437
         - exposure: internal
           name: 'sqlsvr-1434'
           protocol: https
-          targetPort: 1434
+          targetPort: 1438
   - name: sqlserver-container2
     attributes:
       container-overrides: 
