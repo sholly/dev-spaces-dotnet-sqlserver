@@ -110,7 +110,7 @@ components:
           protocol: https
           targetPort: 1437
         - exposure: internal
-          name: 'sqlsvr-1434'
+          name: 'sqlsvr-1438'
           protocol: https
           targetPort: 1438
   - name: mssql-db1
