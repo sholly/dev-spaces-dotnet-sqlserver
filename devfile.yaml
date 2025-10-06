@@ -55,6 +55,7 @@ components:
             add:
               - NET_BIND_SERVICE
     container:
+      dedicatedPod: true
       image: mcr.microsoft.com/mssql/rhel/server:2022-CU17-rhel-9.1         
       memoryLimit: '2Gi'
       memoryRequest: '2Gi'
@@ -88,6 +89,7 @@ components:
             add:
               - NET_BIND_SERVICE
     container:
+      dedicatedPod: true
       image: mcr.microsoft.com/mssql/rhel/server:2022-CU17-rhel-9.1         
       memoryLimit: '2Gi'
       memoryRequest: '2Gi'
@@ -103,16 +105,16 @@ components:
           path: /var/opt/mssql
       endpoints:
         - exposure: internal
-          name: 'sqlsvr-1435'
-          targetPort: 1435   
+          name: 'sqlsvr-1431'
+          targetPort: 1431   
         - exposure: internal
-          name: 'sqlsvr-1437'
+          name: 'sqlsvr-1433'
           protocol: https
-          targetPort: 1437
+          targetPort: 1433
         - exposure: internal
-          name: 'sqlsvr-1438'
+          name: 'sqlsvr-1434'
           protocol: https
-          targetPort: 1438
+          targetPort: 1434
   - name: mssql-db1
     volume:
       size: 2Gi 
