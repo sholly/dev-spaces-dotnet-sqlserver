@@ -16,7 +16,7 @@ components:
         - name: HOME
           value: "/projects/home"
         - name: VSCODE_DEFAULT_WORKSPACE
-          value: "/projects/dev-spaces-dotnet/dev-spaces-dotnet.code-workspace"
+          value: "/projects/dev-spaces-dotnet-sqlserver/dev-spaces-dotnet-sqlserver.code-workspace"
         - name: ASPNETCORE_URLS
           value: "http://0.0.0.0:5000"
       endpoints:
