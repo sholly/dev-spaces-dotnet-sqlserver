@@ -133,7 +133,7 @@ commands:
     exec:
       label: 1.Update dependencies
       component: tools
-      workingDir: /projects/dev-spaces-dotnet/src
+      workingDir: /projects/dev-spaces-dotnet-sqlserver/src
       commandLine: "dotnet restore"
       group:
         kind: build
@@ -141,7 +141,7 @@ commands:
     exec:
       label: 2.Build
       component: tools
-      workingDir: /projects/dev-spaces-dotnet/src
+      workingDir: /projects/dev-spaces-dotnet-sqlserver/src
       commandLine: "dotnet build"
       group:
         kind: build
@@ -149,7 +149,7 @@ commands:
     exec:
       label: 3.Test
       component: tools
-      workingDir: /projects/dev-spaces-dotnet/test
+      workingDir: /projects/dev-spaces-dotnet-sqlserver/test
       commandLine: "dotnet test"
       group:
         kind: run
@@ -157,7 +157,7 @@ commands:
     exec:
       label: 4.Run
       component: tools
-      workingDir: /projects/dev-spaces-dotnet/src
+      workingDir: /projects/dev-spaces-dotnet-sqlserver/src
       commandLine: "dotnet run"
       group:
         kind: run
@@ -165,7 +165,7 @@ commands:
     exec:
       label: 5.Run (Hot Reload)
       component: tools
-      workingDir: /projects/dev-spaces-dotnet/src
+      workingDir: /projects/dev-spaces-dotnet-sqlserver/src
       commandLine: "dotnet watch run"
       group:
         kind: run
